@@ -61,7 +61,7 @@ jobs:
             requirements.txt
             **/uv.lock
       - name: Install dependencies
-        run: uv sync --all-extras --docs
+        run: uv sync --group docs
       - name: Build Docs
         run: uv run pdoc ./src/visual -d google -o ./docs/dev
       - name: Upload Pages Artifact
