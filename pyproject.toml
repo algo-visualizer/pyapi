@@ -19,7 +19,7 @@ Issues = "https://github.com/algo-visualizer/pyapi/issues"
 Documentation = "https://algo-visualizer.github.io/pyapi/main/visual.html"
 
 [dependency-groups]
-docs = ["pdocs"]
+docs = ["pdoc"]
 
 [tool.hatch.version]
 source = "vcs"

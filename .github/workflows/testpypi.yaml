@@ -63,7 +63,7 @@ jobs:
       - name: Install dependencies
         run: uv sync --group docs
       - name: Build Docs
-        run: uv run pdocs ./src/visual -d google -o ./docs/dev
+        run: uv run pdoc ./src/visual -d google -o ./docs/dev
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v4
         with:
