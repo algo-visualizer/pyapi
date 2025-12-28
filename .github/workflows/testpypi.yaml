@@ -2,8 +2,8 @@ name: Publish Wheel to TestPyPI
 on:
   push:
     branches:
-      - dev
-      - main # temp
+      - dev # dev can't publish to TestPyPI now. We'll figure out what is the problem.
+      - main # temp. Delete this after the 'dev' branch works.
   workflow_dispatch:
 
 permissions:
@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-dist:
+  build-and-publish-dist:
     runs-on: ubuntu-latest
     environment: testpypi
     steps:
@@ -42,7 +42,7 @@ jobs:
 
   build-and-deploy-docs:
     runs-on: ubuntu-latest
-    needs: build-dist
+    #needs: build-dist
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
