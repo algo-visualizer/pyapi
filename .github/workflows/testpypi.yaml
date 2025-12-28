@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - dev
+      - main # temp
   workflow_dispatch:
 
 permissions:
@@ -17,6 +18,7 @@ concurrency:
 jobs:
   build-dist:
     runs-on: ubuntu-latest
+    environment: testpypi
     steps:
       - uses: actions/checkout@v5
       - name: Set up Python
@@ -35,6 +37,8 @@ jobs:
         run: uv build
       - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
 
   build-and-deploy-docs:
     runs-on: ubuntu-latest
