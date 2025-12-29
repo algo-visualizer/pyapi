@@ -2,8 +2,7 @@ name: Publish Wheel to TestPyPI
 on:
   push:
     branches:
-      - dev # dev can't publish to TestPyPI now. We'll figure out what is the problem.
-      - main # temp. Delete this after the 'dev' branch works.
+      - dev
   workflow_dispatch:
 
 permissions:
