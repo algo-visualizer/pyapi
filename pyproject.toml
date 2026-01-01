@@ -3,7 +3,7 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "visual"
+name = "algo-visualizer"
 dynamic = ["version"]
 description = "Python API for algo-visualizer."
 license = { file = "LICENSE" }
