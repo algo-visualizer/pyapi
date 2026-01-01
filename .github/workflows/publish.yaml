@@ -50,7 +50,8 @@ jobs:
 
   build-and-deploy-docs:
     runs-on: ubuntu-latest
-    #needs: build-dist
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build-and-publish-dist
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -71,7 +72,7 @@ jobs:
       - name: Install dependencies
         run: uv sync --group docs
       - name: Build Docs
-        run: uv run pdoc ./src/visual -d google -o ./docs/${{ startsWith(github.ref, 'refs/tags/v') && 'main' || 'dev' }}
+        run: uv run pdoc ./src/visual -d google -o ./docs
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v4
         with:
